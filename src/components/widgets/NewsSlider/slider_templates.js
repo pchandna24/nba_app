@@ -1,9 +1,9 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Slick from 'react-slick';
-import { url } from 'inspector';
-import './slider.css'
+
+import styles from './slider.css'
 
 
 
@@ -11,7 +11,7 @@ import './slider.css'
 
   const SliderTemplates =(props) =>{
 
-      let template=null;
+    let template=null;
 
     const settings = {
         dots:true,
@@ -27,14 +27,42 @@ import './slider.css'
             template = props.data.map((item,i) =>{
                 return(
                     <div key={i}>
-                        <div className="featured_item">
-                            <div className="featured_image"
+                        <div className style={{
+                            position: 'relative',
+                            width:'100%',
+                            bottom:'0',
+                            textDecoration:'none',
+                            right:'0px'
+                        }}>
+                            <div className={styles.featured_image}
                             style={{
-                                background:`url(../images/articles/${item.image})`
-                            }}>
+                                background:`url(../images/articles/${item.image})`,
+                                height:'330px',
+                                backgroundSize:'Cover',
+                                backgroundRepeat: 'no-repeat'
+                            }}></div>
 
-                            </div>
-                            <Link to={`./articles/${item.id}`}></Link>
+                            <Link to={`./articles/${item.id}`}>
+                                <div className style={{
+                                    color:'white',
+                                    top:'0px',
+                                    width:'100%',
+                                    padding:'20px',
+                                    fontWeight:'300',
+                                    fontSize:'28px',
+                                    boxSizing:'border-box',
+                                    position:'absolute',
+                                    marginTop:'200px',
+                                    marginLeft:'10px'
+
+
+
+                                }}>
+                                    {item.title}
+                                </div>
+
+
+                            </Link>
                         </div>
                     </div>
                 )
