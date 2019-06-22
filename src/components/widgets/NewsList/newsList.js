@@ -16,6 +16,11 @@ class NewsList extends Component {
 
     }
     componentWillMount(){
+        this.request(this.state.start,this.state.end)
+      
+    }
+
+    request = (start,end) => {
         axios.get(`${URL}/articles?_start=${this.state.start}&_end=${this.state.end}`)
         .then( response=>{
             this.setState({
@@ -23,15 +28,27 @@ class NewsList extends Component {
             })
 
         })
+
     }
+
+    loadMore = () =>{
+        let end=this.state.end+this.state.amount
+        this.request(this.state.end,end)
+    }
+
+
+
     renderNews = (type) => {
         let template = null;
+
+     
 
 
         switch(type){
             case('card'):
                 template = this.state.items.map( (item,i) => (
-                    <div>
+          
+                        <div>
                         <div style={{
                             border:'1px solid #f2f2f2',
                             background:'#fff',
@@ -55,6 +72,8 @@ class NewsList extends Component {
                             </Link>
                         </div>
                     </div>
+                    
+    
                 ))
                 break;
             default:
@@ -65,10 +84,22 @@ class NewsList extends Component {
     }
 
     render() {
-        console.log(this.state.items)
+        
         return (
             <div>
-                {this.renderNews( this.props.type )}
+                <TransitionGroup
+                component="div"
+                className="list"
+                
+                >
+                    {this.renderNews( this.props.type )}
+                </TransitionGroup>
+                <Button
+                    type="loadmore"
+                    loadMore={()=>this.loadMore()}
+                    cta="Load More News"
+                />
+
             </div>
         )
     }
