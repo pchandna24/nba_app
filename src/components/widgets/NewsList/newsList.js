@@ -3,13 +3,15 @@ import { CSSTransition , TransitionGroup } from 'react-transition-group';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { URL } from '../../../config';
-import Button from '../Buttons/button'
+import Button from '../Buttons/button';
+import CardInfo from '../../widgets/CardInfo/cardinfo';
 
 
 
 class NewsList extends Component {
 
     state={
+        teams:[],
         items:[],
         start:this.props.start,
         end:this.props.start+this.props.amount,
@@ -22,6 +24,19 @@ class NewsList extends Component {
     }
 
     request = (start,end) => {
+        if(this.state.teams.length < 1){
+            axios.get(`${URL}/teams`)
+            .then( response =>{
+                this.setState({
+                    teams:response.data
+                })
+            })
+
+        }
+        
+
+
+
         axios.get(`${URL}/articles?_start=${this.state.start}&_end=${this.state.end}`)
         .then( response=>{
             this.setState({
@@ -63,6 +78,7 @@ class NewsList extends Component {
                                 textDecoration:'none',
                             }}
                             to={`/articles/$(item.id)`}>
+                                <CardInfo teams={this.state.teams} team={item.team} date={item.date}/>
                                 <h2 style={{
                                     fontSize:'13px',
                                     lineHeight:'21px',
@@ -85,6 +101,7 @@ class NewsList extends Component {
     }
 
     render() {
+        
         
         return (
             <div>
