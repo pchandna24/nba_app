@@ -33,7 +33,10 @@ const VideosListTemplate = (props) => {
                     </div>
 
                 </div>
-                <div className={styles.right}>
+                <div style={{
+                    flexGrow:'1',
+                    padding:'10px'
+                }}><CardInfo teams={props.teams} team={item.team} date={item.date}/>
                     <h2 style={{
                         fontSize:'13px',
                         color:'#525252'
