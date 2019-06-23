@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import CardInfo from '../CardInfo/cardinfo';
+import styles from '../VideosList/video.css'
 
 const VideosListTemplate = (props) =>{
     

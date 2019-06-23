@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { URL } from '../../../config';
 import Button from '../Buttons/button';
-import videosListTemplate from '../VideosList/videosListTemplate';
+import VideosListTemplate from '../VideosList/videosListTemplate';
 
-export default class VideosList extends Component {
+class VideosList extends Component {
     state={
         teams:[],
         videos:[],
         start: this.props.start,
-        end: this.props.start+ this.props.amount,
-        amount: this.props.amount
+        amount:this.props.amount,
+        end: this.props.start+ this.props.amount
 
     }
     componentWillMount(){
@@ -18,7 +18,7 @@ export default class VideosList extends Component {
     }
 
     request = (start,end) =>{
-        if(this.state.teams.length<1){
+        if(this.state.teams.length < 1){
             axios.get(`${URL}/teams`)
             .then( response =>{
                 this.setState({
@@ -38,16 +38,17 @@ export default class VideosList extends Component {
 
 
     }
+
     renderVideos = () =>{
 
         let template = null;
 
         switch(this.props.type){
             case('card'):
-                template = <videosListTemplate data={this.state.videos} teams={this.state.teams}/>
+                template = <VideosListTemplate data={this.state.videos} teams={this.state.teams}/>
                 break;
             default:
-                template =null
+                template = null
         }
 
         return template;
@@ -58,7 +59,7 @@ export default class VideosList extends Component {
 
     }
 
-
+   
     renderButton = () =>{
         return this.props.loadmore ?
              <Button
@@ -69,6 +70,11 @@ export default class VideosList extends Component {
              :
             <Button type="linkTo" cta="More Videos" linkTo="/videos/"/>
     }
+
+
+
+   
+
 
     renderTitle = () =>{
         return this.props.title ? <h3 style={{
@@ -82,9 +88,12 @@ export default class VideosList extends Component {
         }}><strong>NBA</strong> Videos</h3>: null
     }
 
+ 
+
 
 
     render() {
+        
         return (
             
             <div style={{
@@ -98,3 +107,5 @@ export default class VideosList extends Component {
         )
     }
 }
+
+export default VideosList;
