@@ -10,7 +10,7 @@ const SideNavItems = () => {
     const items=[
         {
             type: 'option',
-            icon:'homme',
+            icon:'home',
             text:'Home',
             link:'/'
         },
@@ -22,7 +22,7 @@ const SideNavItems = () => {
         },
         {
             type: 'option',
-            icon:'playy',
+            icon:'play',
             text:'Videos',
             link:'/videos'
         },
