@@ -42,7 +42,11 @@ class NewsArticles extends Component {
         return(
             <div >
                
-               <Header/>
+               <Header
+                    teamData={team[0]}
+                    date={article.date}
+                    author={article.author}
+               />
                <Body/>
                
                 
