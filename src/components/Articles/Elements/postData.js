@@ -15,11 +15,15 @@ const PostData = (props) =>{
         }}>
             <div>
                 Date:
-                <span>{props.data.date}</span>
+                <span style={{
+                    fontWeight:'500'
+                }}>{props.data.date}</span>
             </div>
             <div>
                 Author:
-                <span>{props.data.author}</span>
+                <span style={{
+                    fontWeight:'500'
+                }}>{props.data.author}</span>
             </div>
         </div>
     )

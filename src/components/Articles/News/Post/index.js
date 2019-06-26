@@ -2,7 +2,7 @@ import React , { Component } from 'react';
 import axios from 'axios';
 import { URL } from '../../../../config';
 import Header from './header';
-import Body from './body';
+
 
 class NewsArticles extends Component {
 
@@ -52,7 +52,36 @@ class NewsArticles extends Component {
                     date={article.date}
                     author={article.author}
                />
-               <Body/>
+               <div style={{
+                   background:'#fff',
+                   margin:'0 5px',
+                   border:'1px solid #c5c5c5'
+               }}>
+                   <h1 style={{
+                       fontSize:'25px',
+                       fontWeight:'400',
+                       color:'#4d4d4d',
+                       margin:'15px 0'
+
+                   }}>{article.title}</h1>
+                   <div style={{
+                       background:`url('/images/articles/${article.image}')`,
+                       backgroundSize:'cover !important',
+                       width:'100%',
+                       height:'200px',
+                       backgroundPosition:'center center',
+                       backgroundRepeat:'no-repeat !important'
+
+                   }}></div>
+                   <div style={{
+                       fontWeight:'300',
+                       color:'#666666',
+                       lineHeight:'23px',
+                       margin:'15px'
+                   }}>
+                       {article.body}
+                   </div>
+               </div>
                
                 
                 
