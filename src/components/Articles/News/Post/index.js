@@ -1,7 +1,8 @@
 import React , { Component } from 'react';
 import axios from 'axios';
 import { URL } from '../../../../config';
-//import Header from './header';
+import Header from './header';
+import Body from './body';
 
 class NewsArticles extends Component {
 
@@ -32,15 +33,18 @@ class NewsArticles extends Component {
 
     
     render(){
-        console.log(this.state);
+        
         const article= this.state.article;
         const team= this.state.team;
 
 
 
         return(
-            <div className={StyleSheet.articlewraaper}>
-               article view
+            <div >
+               
+               <Header/>
+               <Body/>
+               
                 
                 
             </div>
