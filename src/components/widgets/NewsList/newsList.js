@@ -79,7 +79,7 @@ class NewsList extends Component {
                             style={{
                                 textDecoration:'none',
                             }}
-                            to={`/articles/$(item.id)`}>
+                            to={`/articles/${item.id}`}>
                                 <CardInfo teams={this.state.teams} team={item.team} date={item.date}/>
                                 <h2 style={{
                                     fontSize:'13px',

@@ -12,20 +12,25 @@ class NewsArticles extends Component {
     }
 
     componentWillMount(){
+        console.log(this.props.match.params.id);
 
         axios.get(`${URL}/articles?id=${this.props.match.params.id}`)
         .then(
             response => {
             
             let article = response.data[0];
-
-            axios.get(`${URL}/teams?id=${article.team}`)
-            .then( response => {
-                this.setState({
-                    article,
-                    team:response.data
+            console.log(response);
+            if(article){
+                axios.get(`${URL}/teams?id=${article.team}`)
+                .then( response => {
+                    this.setState({
+                        article,
+                        team:response.data
+                    })
                 })
-            })
+            }
+
+         
 
         })
      

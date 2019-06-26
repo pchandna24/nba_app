@@ -3,6 +3,7 @@ import React from 'react';
 
 
 const TeamNfo = (props) =>{
+return(
     <div styles={{
         border:'1px solid #c5c5c5',
         borderBottom:'0px',
@@ -40,6 +41,7 @@ const TeamNfo = (props) =>{
 
         </div>
     </div>
+)
 }
 
 export default TeamNfo;
