@@ -2,11 +2,14 @@ import React ,{ Component } from 'react';
 import axios from 'axios';
 import { URL } from '../../../../config';
 import Header from './header';
+import VideosRelated from '../../../widgets/VideosList/VideosRelated/videosRelated';
 
 class VideoArticle extends Component{
     state= {
         article:[],
         team:[],
+        teams:[],
+        related:[]
     }
     
     componentWillMount(){
@@ -24,7 +27,8 @@ class VideoArticle extends Component{
                     this.setState({
                         article,
                         team:response.data
-                    })
+                    });
+                    this.getRelated();
                 })
             }
 
@@ -32,6 +36,25 @@ class VideoArticle extends Component{
 
         })
      
+    }
+
+
+    getRelated = () => {
+        axios.get(`${URL}/teams`)
+        .then( response =>{
+            let teams = response.data
+
+            axios.get(`${URL}/videos?q=${this.state.team[0].city}`)
+            .then(response =>{
+                this.setState({
+                    teams,
+                    related:response.data
+                })
+
+            })
+
+
+        })
     }
 
 
@@ -68,6 +91,10 @@ class VideoArticle extends Component{
 
                      </iframe>
                  </div>
+                 <VideosRelated
+                 data={this.state.related}
+                 teams={this.state.teams}
+                 />
             </div>
         )
     }
