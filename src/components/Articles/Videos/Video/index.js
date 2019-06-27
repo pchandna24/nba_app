@@ -92,8 +92,8 @@ class VideoArticle extends Component{
                      </iframe>
                  </div>
                  <VideosRelated
-                 data={this.state.related}
-                 teams={this.state.teams}
+                    data={this.state.related}
+                    teams={this.state.teams}
                  />
             </div>
         )
