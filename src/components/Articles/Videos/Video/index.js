@@ -43,7 +43,31 @@ class VideoArticle extends Component{
         return(
             <div>
                 <Header teamData={team[0]}/>
-                video article
+                 <div style={{
+                     background:'#fff',
+                     margin:'0 5px',
+                     border:'1px solid #c5c5c5',
+
+                 }}>
+                     <h1 style={{
+                         fontSize:'25px',
+                         fontWeight:'400',
+                         color:'#4d4d4d',
+                         margin:'15px 0',
+                         padding:'0 10px'
+
+                     }}>{article.title}</h1>
+                     <iframe style={{
+                         border:'0'
+                     }}
+                        title="videoplayer"
+                        width="100%"
+                        height="300px"
+                        src={`https://www.youtube.com/embed/${article.url}`}
+                     >
+
+                     </iframe>
+                 </div>
             </div>
         )
     }
