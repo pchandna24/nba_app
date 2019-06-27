@@ -77,7 +77,7 @@ class NewsArticles extends Component {
                        fontWeight:'300',
                        color:'#666666',
                        lineHeight:'23px',
-                       margin:'15px'
+                       margin:'15px 0'
                    }}>
                        {article.body}
                    </div>
