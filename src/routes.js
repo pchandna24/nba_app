@@ -13,6 +13,7 @@ class Routes extends Component {
             <Layout>
                  <Switch>
                     <Route path="/" exact component={Home}/> 
+                    <Route path="/news" exact component={NewsMain}/>
                     <Route path="/articles/:id" exact component ={NewsArticle}/>
                     <Route path="/videos/:id" exact component={VideoArticle}/>
                 </Switch>
