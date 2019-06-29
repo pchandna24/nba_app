@@ -17,7 +17,7 @@ const NewsMain = () =>(
             type="card"
             loadMore={true}
             start={3}
-            amount={10}
+            amount={3}
         />
 
 
