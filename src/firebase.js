@@ -1,7 +1,7 @@
 import * as firebase from 'firebase';
 
 
-var Config = {
+var config = {
     apiKey: "AIzaSyB09mG3lnvCcd9NeObsyZ-K78TxWq2kUX4",
     authDomain: "nba-fulls.firebaseapp.com",
     databaseURL: "https://nba-fulls.firebaseio.com",
@@ -19,6 +19,13 @@ const firebaseDB = firebase.database();
 
 const firebaseArticles= firebaseDB.ref('articles');
 const firebaseTeams = firebaseDB.ref('teams');
-const firebaseVideos = firebaseDb.ref('videos');
+const firebaseVideos = firebaseDB.ref('videos');
 
 
+export {
+    firebase,
+    firebaseDB,
+    firebaseArticles,
+    firebaseVideos,
+    firebaseTeams
+} 
