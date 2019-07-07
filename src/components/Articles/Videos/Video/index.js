@@ -1,5 +1,5 @@
 import React ,{ Component } from 'react';
-import { firebaseDB , firebaseLooper, firebaseTeams} from '../../../../firebase';
+import { firebaseDB , firebaseLooper, firebaseTeams, firebaseVideos} from '../../../../firebase';
 
 import Header from './header';
 import VideosRelated from '../../../widgets/VideosList/VideosRelated/videosRelated';
@@ -24,7 +24,8 @@ class VideoArticle extends Component{
                 this.setState({
                     article,
                     team
-                })
+                });
+                this.getRelated();
             })
         })
         
@@ -35,6 +36,20 @@ class VideoArticle extends Component{
 
 
     getRelated = () => {
+
+        firebaseTeams.once('value')
+        .then((snapshot)=>{
+            const teams = firebaseLooper(snapshot);
+
+            firebaseVideos.orderByChild("team").equalTo(this.state.article.team).limitToFirst(3).once('value')
+            .then((snapshot)=>{
+                const related= firebaseLooper(snapshot);
+                this.setState({
+                    teams,
+                    related
+                })
+            })
+        })
    
     }
 
