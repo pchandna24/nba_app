@@ -1,5 +1,6 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
+import moment from 'moment';
 
 
 const CardInfo = (props) =>{
@@ -13,6 +14,12 @@ const CardInfo = (props) =>{
             return data.name
         }
     }
+    const formatDate=(date)=>{
+        return moment(date).format('MM-DD-YYYY')
+    }
+
+
+
     return(
         <div style={{
             fontSize:'11px',
@@ -32,8 +39,8 @@ const CardInfo = (props) =>{
                 color:'#2196f3'
 
             }}>
-                
-                {props.date}
+                <FontAwesome name="clock-o"/>
+                {formatDate(props.date)}
 
             </span>
         </div>
