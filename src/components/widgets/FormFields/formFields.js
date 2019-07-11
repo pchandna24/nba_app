@@ -2,10 +2,23 @@ import React from 'react';
 import './formFields.css';
 
 
-const FormFields = () =>{
+
+
+
+
+const FormFields = ({formdata,change,id}) =>{
+
+    const renderTemplate = () => {
+        
+
+    }
+
+
+
+
     return(
         <div>
-            template input
+            {renderTemplate()}
         </div>
     )
 }
