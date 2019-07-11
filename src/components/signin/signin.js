@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import styles from './signin.css';
+import './signin.css';
+
+import FormFields from '../widgets/FormFields/formFields';
  
 
 
@@ -49,7 +51,11 @@ class SignIn extends Component{
 
     render(){
         return(
-            <div>
+            <div className="logContainer">
+                <form>
+                    <FormFields/>
+
+                </form>
 
             </div>
         )
