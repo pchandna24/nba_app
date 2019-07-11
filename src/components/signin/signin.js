@@ -49,11 +49,20 @@ class SignIn extends Component{
     }
 
 
+        updateForm = (element) =>{
+            
+        }
+
+
     render(){
         return(
             <div className="logContainer">
                 <form>
-                    <FormFields/>
+                    <FormFields
+                        id={'email'}
+                        formdata={this.state.formdata.email}
+                        change={(element)=>this.updateForm(element)}
+                    />
 
                 </form>
 
