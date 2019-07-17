@@ -9,15 +9,26 @@ import './formFields.css';
 const FormFields = ({formdata,change,id}) =>{
 
     const renderTemplate = () => {
-        let formTempalte = null;
+        let formTemplate = null;
 
         switch(formdata.element){
             case('input'):
+                formTemplate =(
+                    <div>
+                        <input
+                            {...formdata.config}
+                        value={formdata.value}
+                        onBlur={(event) => change({event,id,blur:true})}
+                        onChange={(event) => change({event,id,blur:false})}
+
+                        />
+                    </div>
+                )
                 break;
             default:
                 formTemplate = null;
         }
-        return formTempalte;
+        return formTemplate;
         
 
     }
