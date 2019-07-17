@@ -56,7 +56,12 @@ class SignIn extends Component{
             const newElement ={
                 ...newFormdata[element.id]
             }
-            newElement.value = element.event.target.value; 
+            newElement.value = element.event.target.value;
+            newFormdata[element.id]=newElement; 
+
+            this.setState({
+                formdata:newFormdata
+            })
             
         }
 
@@ -68,6 +73,12 @@ class SignIn extends Component{
                     <FormFields
                         id={'email'}
                         formdata={this.state.formdata.email}
+                        change={(element)=>this.updateForm(element)}
+                    />
+
+                    <FormFields
+                        id={'password'}
+                        formdata={this.state.formdata.password}
                         change={(element)=>this.updateForm(element)}
                     />
 
