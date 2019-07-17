@@ -70,6 +70,7 @@ class SignIn extends Component{
         return(
             <div className="logContainer">
                 <form>
+                    <h2>Register/login</h2>
                     <FormFields
                         id={'email'}
                         formdata={this.state.formdata.email}
