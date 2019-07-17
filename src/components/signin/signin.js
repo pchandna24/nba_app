@@ -76,6 +76,7 @@ class SignIn extends Component{
             if(element.validation.required){
                 const valid = element.value.trim()!=='';
                 const message = `${!valid?'This field is required':''}`;
+                error=!valid ?[valid,message] : error
             }
 
         }
