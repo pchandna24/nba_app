@@ -59,9 +59,11 @@ class SignIn extends Component{
             newElement.value = element.event.target.value;
             if(element.blur){
                 let validData=this.validate(newElement);
+                newElement.valid=validData[0];
+                newElement.validationMessage=validData[1];
             }
 
-
+            newElement.touched=element.blur;
             newFormdata[element.id]=newElement; 
 
             this.setState({
