@@ -57,12 +57,27 @@ class SignIn extends Component{
                 ...newFormdata[element.id]
             }
             newElement.value = element.event.target.value;
+            if(element.blur){
+                let validData=this.validate(newElement);
+            }
+
+
             newFormdata[element.id]=newElement; 
 
             this.setState({
                 formdata:newFormdata
             })
             
+        }
+
+        validate = (element) =>{
+            let error=[true,''];
+
+            if(element.validation.required){
+                const valid = element.value.trim()!=='';
+                const message = `${!valid?'This field is required':''}`;
+            }
+
         }
 
 
