@@ -73,6 +73,20 @@ class SignIn extends Component{
         validate = (element) =>{
             let error=[true,''];
 
+            if(element.validation.email){
+                const valid = /\S+@\S+\.\S+/.test(element.value);
+                const message = `${!valid?'Must be a valid email':''}`;
+                error=!valid ?[valid,message] : error
+
+            }
+
+            if(element.validation.password){
+                const valid = element.value.length>=5;
+                const message = `${!valid?'Must be greater than 5':''}`;
+                error=!valid ?[valid,message] : error
+
+            }
+
             if(element.validation.required){
                 const valid = element.value.trim()!=='';
                 const message = `${!valid?'This field is required':''}`;
@@ -86,7 +100,7 @@ class SignIn extends Component{
         return(
             <div className="logContainer">
                 <form>
-                    <h2>Register/login</h2>
+                    <h2>Register / Log in</h2>
                     <FormFields
                         id={'email'}
                         formdata={this.state.formdata.email}
