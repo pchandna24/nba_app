@@ -58,6 +58,7 @@ class SignIn extends Component{
             }
             newElement.value = element.event.target.value;
             if(element.blur){
+            
                 let validData=this.validate(newElement);
                 newElement.valid=validData[0];
                 newElement.validationMessage=validData[1];
@@ -94,6 +95,8 @@ class SignIn extends Component{
                 const message = `${!valid?'This field is required':''}`;
                 error=!valid ?[valid,message] : error
             }
+
+            return error;
 
         }
 
