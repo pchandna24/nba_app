@@ -100,6 +100,16 @@ class SignIn extends Component{
 
         }
 
+        submitButton =()=>(
+            this.state.loading ?
+                'loading..'
+            :
+            <div>
+                <button>Register Now</button>
+                <button>Log in</button>
+            </div>
+        )
+
 
     render(){
         return(
@@ -117,6 +127,8 @@ class SignIn extends Component{
                         formdata={this.state.formdata.password}
                         change={(element)=>this.updateForm(element)}
                     />
+
+                    {this.submitButton()}
 
                 </form>
 
