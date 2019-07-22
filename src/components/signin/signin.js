@@ -121,6 +121,11 @@ class SignIn extends Component{
                         registerError:' '
 
                     })
+                    if(type){
+
+                    }else{
+
+                    }
                 }
             }
         }
@@ -131,7 +136,10 @@ class SignIn extends Component{
             :
             <div>
                 <button onClick={(event)=>this.submitForm(event,false)}>Register Now</button>
-                <button onClick={(event)=>this.submitForm(event,true)}>Log in</button>
+                <button style={{
+                    marginLeft:'2px'
+                }}
+                onClick={(event)=>this.submitForm(event,true)}>Log in</button>
             </div>
         )
 
