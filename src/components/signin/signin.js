@@ -105,8 +105,8 @@ class SignIn extends Component{
                 'loading..'
             :
             <div>
-                <button>Register Now</button>
-                <button>Log in</button>
+                <button onClick={(event)=>this.submitForm(event,false)}>Register Now</button>
+                <button onClick={(event)=>this.submitForm(event,true)}>Log in</button>
             </div>
         )
 
