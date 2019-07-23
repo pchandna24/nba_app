@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './signin.css';
+import { firebase } from '../../firebase';
 
 import FormFields from '../widgets/FormFields/formFields';
  
@@ -123,7 +124,23 @@ class SignIn extends Component{
                     })
                     if(type){
 
-                    }else{
+                    } else{
+
+                        firebase.auth()
+                        .createUserWithEmailAndPassword(
+                            dataToSubmit.email,
+                            dataToSubmit.password
+                        ).then(()=>{
+                            this.props.history.push('/')
+                        }).catch(error=>{
+                            this.setState({
+                                loading:false,
+                                registerError:error.message
+        
+                            })
+                            
+
+                        })
 
                     }
                 }
