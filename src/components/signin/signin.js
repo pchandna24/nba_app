@@ -175,6 +175,12 @@ class SignIn extends Component{
             </div>
         )
 
+        showError=()=>(
+            this.state.registerError!== ''?
+                <div className="error">{this.state.registerError}</div>
+            :''
+        )
+
 
     render(){
         return(
@@ -194,6 +200,7 @@ class SignIn extends Component{
                     />
 
                     {this.submitButton()}
+                    {this.showError()}
 
                 </form>
 
