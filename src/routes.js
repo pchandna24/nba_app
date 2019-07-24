@@ -22,7 +22,7 @@ const Routes =(props) => {
                     <Route path="/videos/:id" exact component={VideoArticle}/>
                     <Route path="/videos" exact component={VideosMain}/>
                     <Route path="/sign-in" exact component={SignIn}/>
-                    <Route path="/dashboard" exact component={Dashboard}/}
+                    <Route path="/dashboard" exact component={Dashboard}/>
                 </Switch>
             </Layout>
            
