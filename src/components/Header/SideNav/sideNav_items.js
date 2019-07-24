@@ -5,53 +5,66 @@ import FontAwesome from 'react-fontawesome';
 import './sideNav.css'
 
 
-const SideNavItems = () => {
+const SideNavItems = (props) => {
 
     const items=[
         {
             type: 'option',
             icon:'home',
             text:'Home',
-            link:'/'
+            link:'/',
+            login:''
         },
         {
             type: 'option',
             icon:'file-text-o',
             text:'News',
-            link:'/news'
+            link:'/news',
+            login:''
         },
         {
             type: 'option',
             icon:'play',
             text:'Videos',
-            link:'/videos'
+            link:'/videos',
+            login:''
         },
         {
             type: 'option',
             icon:'sign-in',
             text:'Sign in',
-            link:'/sign-in'
+            link:'/sign-in',
+            login:false
         },
         {
             type: 'option',
             icon:'sign-out',
             text:'Sign out',
-            link:'/sign-out'
+            link:'/sign-out',
+            login:true
         }
 
     ]
 
+    const element = () =>(
+        <div key={i} className={item.type}>
+        <Link to={item.link}>
+            <FontAwesome name={item.icon}/>
+            {item.text}
+        </Link>
+    </div>
+
+    )
+
     const showItems = () =>{
         return items.map((item,i)=>{
-            return(
-                <div key={i} className={item.type}>
-            <Link to={item.link}>
-                <FontAwesome name={item.icon}/>
-                {item.text}
-            </Link>
-        </div>
+            return item.login !== '' ?
+                ''
+            :
+                 element(item,i)
+       
 
-            )
+            
         })
     }
 
