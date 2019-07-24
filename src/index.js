@@ -19,7 +19,7 @@ const App = (props) =>{
 serviceWorker.register();
 
 
-firebase.auth().onAuthStateChanges((user)=>{
+firebase.auth().onAuthStateChanged((user)=>{
     ReactDOM.render(<App />, document.getElementById('root'));
 
 })
