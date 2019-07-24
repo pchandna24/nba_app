@@ -32,16 +32,23 @@ const SideNavItems = (props) => {
         {
             type: 'option',
             icon:'sign-in',
+            text:'DashBoard',
+            link:'/dashboard',
+            login:false
+        },
+        {
+            type: 'option',
+            icon:'sign-in',
             text:'Sign in',
             link:'/sign-in',
-            login:false
+            login:true
         },
         {
             type: 'option',
             icon:'sign-out',
             text:'Sign out',
             link:'/sign-out',
-            login:true
+            login:false
         }
 
     ]
@@ -56,10 +63,31 @@ const SideNavItems = (props) => {
 
     )
 
+
+    const restricted =(item,i)=>{
+        let template = null;
+
+        if(props.user===null && item.login){
+            template=element(item,i)
+        }
+
+        if(props.user!==null && !item.login){
+            if(item.link==='/sign-out'){
+
+            }
+            else{
+                template=element(item,i)
+            }
+        }
+
+        return template;
+    }
+
+
     const showItems = () =>{
         return items.map((item,i)=>{
             return item.login !== '' ?
-                ''
+                restricted(item,i)
             :
                 element(item,i)
        
