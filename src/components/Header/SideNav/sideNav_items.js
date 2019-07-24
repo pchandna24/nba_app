@@ -1,5 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
+import {firebase} from '../../../firebase';
 
 import FontAwesome from 'react-fontawesome';
 import './sideNav.css'
@@ -73,6 +74,22 @@ const SideNavItems = (props) => {
 
         if(props.user!==null && !item.login){
             if(item.link==='/sign-out'){
+                template=(
+                    <div key={i}
+                       className={item.type}
+                       onClick={()=>{
+                           firebase.auth().signOut()
+                           .then(()=>{
+                               props.history.push("/")
+                           })
+
+                       }}
+                       >
+                       <FontAwesome name={item.icon}/>
+                       {item.text}
+                    </div>
+
+                )
 
             }
             else{
@@ -110,4 +127,4 @@ const SideNavItems = (props) => {
 }
 
 
-export default SideNavItems;
+export default withRouter(SideNavItems);
