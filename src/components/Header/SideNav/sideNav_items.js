@@ -46,7 +46,7 @@ const SideNavItems = (props) => {
 
     ]
 
-    const element = () =>(
+    const element = (item,i) =>(
         <div key={i} className={item.type}>
         <Link to={item.link}>
             <FontAwesome name={item.icon}/>
@@ -61,7 +61,7 @@ const SideNavItems = (props) => {
             return item.login !== '' ?
                 ''
             :
-                 element(item,i)
+                element(item,i)
        
 
             
