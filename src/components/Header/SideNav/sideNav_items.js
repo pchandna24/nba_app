@@ -80,7 +80,7 @@ const SideNavItems = (props) => {
                        onClick={()=>{
                            firebase.auth().signOut()
                            .then(()=>{
-                               props.history.push("/")
+                               props.history.push("/home")
                            })
 
                        }}
