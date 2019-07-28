@@ -131,6 +131,17 @@ class Dashboard extends Component {
         :''
     )
 
+    onEditorStateChange =(editorState) =>{
+
+        let contentState = editorState.getCurrentContent();
+        let rawState = convertToRaw(contentState);
+        let html=stateToHTML(contentState)
+
+        this.setState({
+            editorState
+        })
+    }
+
     render(){
         return(
             <div className="postContainer">
