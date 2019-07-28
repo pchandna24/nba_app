@@ -1,6 +1,7 @@
 import React , { Component } from 'react';
 import FormFields from '../widgets/FormFields/formFields';
 import './dashboard.css';
+import { firebaseTeams } from '../../firebase';
 
 import { Editor } from 'react-draft-wysiwyg';
 import { EditorState, convertFromRaw, convertToRaw } from 'draft-js';
