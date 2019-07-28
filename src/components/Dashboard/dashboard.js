@@ -2,6 +2,11 @@ import React , { Component } from 'react';
 import FormFields from '../widgets/FormFields/formFields';
 import './dashboard.css';
 
+import { Editor } from 'react-draft-wysiwyg';
+import { EditorState, convertFromRaw, convertToRaw } from 'draft-js';
+import {stateToHTML} from 'draft-js-export-html';
+
+
 
 
 class Dashboard extends Component {
