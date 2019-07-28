@@ -119,6 +119,11 @@ class Dashboard extends Component {
         </div>
   
     )
+    showError=()=>(
+        this.state.postError!== ''?
+            <div className="error">{this.state.postError}</div>
+        :''
+    )
 
     render(){
         return(
@@ -133,6 +138,7 @@ class Dashboard extends Component {
                     />
                     
                     {this.submitButton()}
+                    {this.showError()}
 
                 </form>
             </div>
