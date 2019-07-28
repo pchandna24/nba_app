@@ -137,6 +137,12 @@ class Dashboard extends Component {
                         change={(element)=>this.updateForm(element)}
                     />
                     
+                    <FormFields
+                        id={'title'}
+                        formdata={this.state.formdata.title}
+                        change={(element)=>this.updateForm(element)}
+                    />
+                    
                     {this.submitButton()}
                     {this.showError()}
 
