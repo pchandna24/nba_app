@@ -100,7 +100,10 @@ class Dashboard extends Component {
         if(formIsValid){
 
         }else{
-            
+            this.setState({
+                postError:'Something went wrong'
+            })
+
         }
 
 
