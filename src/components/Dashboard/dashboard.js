@@ -56,11 +56,11 @@ class Dashboard extends Component {
                 value:'',
                 valid:true
             },
-            team:{
+            teams:{
                 element:'select',
                 value:'',
                 config:{
-                    name:'tems_input',
+                    name:'teams_input',
                     options:[]
                     
                 
@@ -78,6 +78,35 @@ class Dashboard extends Component {
         }
 
     }
+    componentDidMount(){
+        this.loadTeams()
+    }
+
+    loadTeams=()=>{
+        firebaseTeams.once('value')
+        .then((snapshot)=>{
+            let teams=[];
+
+            snapshot.forEach((childSnapshot)=>{
+                teams.push({
+
+                    id:childSnapshot.val().teamId,
+                    name:childSnapshot.val().city
+                })
+
+            })
+            const newFormdata={...this.state.formdata};
+            const newElement ={...newFormData['teams']};
+
+            newElement.config.options=teams;
+            newFormData['teams']=newElement;
+
+            
+        })
+    }
+
+
+
     updateForm = (element,content='') =>{
         const newFormdata={
             ...this.state.formdata
