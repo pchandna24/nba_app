@@ -53,7 +53,9 @@ const FormFields = ({formdata,change,id}) =>{
                             onBlur={(event) => change({event,id,blur:true})}
                             onChange={(event) => change({event,id,blur:false})}
                         >
-                            
+                            {formdata.config.options.map((item,i)=>(
+                                <option key={i} value={item.id}>{item.name}</option>
+                            ))}
                         </select>
                     </div>
                 )
