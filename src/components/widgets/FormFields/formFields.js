@@ -43,6 +43,22 @@ const FormFields = ({formdata,change,id}) =>{
                     </div>
                 )
                 break;
+            
+            case('select'):
+                formTemplate=(
+                    <div>
+                        <select
+                            value={formdata.value}
+                            name={formdata.config.name}
+                            onBlur={(event) => change({event,id,blur:true})}
+                            onChange={(event) => change({event,id,blur:false})}
+                        >
+                            
+                        </select>
+                    </div>
+                )
+                
+                break;
             default:
                 formTemplate = null;
         }
