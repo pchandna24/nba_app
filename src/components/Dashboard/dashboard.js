@@ -55,6 +55,24 @@ class Dashboard extends Component {
                 element:'texteditor',
                 value:'',
                 valid:true
+            },
+            team:{
+                element:'select',
+                value:'',
+                config:{
+                    name:'tems_input',
+                    options:[]
+                    
+                
+                },
+                validation:{
+                    required:true,
+                    
+                },
+                valid:false,
+                touched:false,
+                validationMessage:''
+
             }
 
         }
@@ -179,6 +197,14 @@ class Dashboard extends Component {
                         onEditorStateChange={this.onEditorStateChange}
 
                     />
+                     
+                     <FormFields
+                        id={'teams'}
+                        formdata={this.state.formdata.teams}
+                        change={(element)=>this.updateForm(element)}
+                    />
+
+
                     
                     {this.submitButton()}
                     {this.showError()}
