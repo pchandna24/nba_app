@@ -96,10 +96,14 @@ class Dashboard extends Component {
 
             })
             const newFormdata={...this.state.formdata};
-            const newElement ={...newFormData['teams']};
+            const newElement ={...newFormdata['teams']};
 
             newElement.config.options=teams;
-            newFormData['teams']=newElement;
+            newFormdata['teams']=newElement;
+
+            this.setState({
+                formdata:newFormdata
+            })
 
             
         })
